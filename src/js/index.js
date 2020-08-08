@@ -30,6 +30,20 @@ class NPC {
     move(direction) {
         if (direction) {
             this.direction = direction;
+            switch(direction) {
+                case 'right':
+                    this.x += this.speed;
+                    break;
+                case 'left':
+                    this.x -= this.speed;
+                    break;
+                case 'up':
+                    this.y += 1;
+                    break;
+                case 'down':
+                    this.y -= 1;
+                    break;
+            }
             if (this.step === 'calm') {
                 this.step = 'rightFoot';
             } else {
@@ -37,9 +51,6 @@ class NPC {
             }
         } else {
             this.step = 'calm';
-        }
-        if (direction) {
-            this.direction === 'right' ? (this.x += this.speed) : (this.x -= this.speed);
         }
         this.moving();
     }
